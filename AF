@@ -1,0 +1,32 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("asher says hi", "Midnight")
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+ 
+ 
+    MainSection:NewButton("Auto - Buy", "step 1", function()
+        while wait() do
+local args = {
+    [1] = "Costly"
+}
+ 
+game:GetService("ReplicatedStorage").Remotes.OpenCrate:FireServer(unpack(args))
+end
+    end)
+ 
+    MainSection:NewButton("Auto - Sell", "step 2", function(state)
+        while wait() do
+local args = {
+    [1] = "All",
+    [2] = "",
+    [3] = ""
+}
+ 
+game:GetService("ReplicatedStorage").Remotes.Sell:FireServer(unpack(args))
+end
+    end)
+ 
+    MainSection:NewButton("Infinite Yield", "FE Admin Commands", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end)
